@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.d121211017.submissiongithubuser.R
 import com.d121211017.submissiongithubuser.model.ItemsItem
 
-class MainRecyclerViewAdapter(private val userArrayList : ArrayList<ItemsItem>) : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
+class MainRecyclerViewAdapter(private val userArrayList : List<ItemsItem?>?) : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -20,16 +20,19 @@ class MainRecyclerViewAdapter(private val userArrayList : ArrayList<ItemsItem>) 
     }
 
     override fun onBindViewHolder(holder: MainRecyclerViewAdapter.ViewHolder, position: Int) {
-        val users = userArrayList[position]
+        val users = userArrayList?.get(position)
+
         Glide.with(holder.itemView.context)
-            .load(users.avatarUrl)
+            .load(users?.avatarUrl)
+            .circleCrop()
+            .centerInside()
             .into(holder.imageView)
 
-        holder.textView.text = users.login
+        holder.textView.text = users?.login
     }
 
     override fun getItemCount(): Int {
-        return userArrayList.size
+        return userArrayList?.size ?: 0
     }
 
     class ViewHolder(item: View) : RecyclerView.ViewHolder(item){

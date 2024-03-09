@@ -14,28 +14,28 @@ import retrofit2.http.Query
 private const val ACCESS_TOKEN = "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"
 interface ApiService {
 
-    @FormUrlEncoded
+
     @Headers("Authorization: token $ACCESS_TOKEN")
-    @GET("/search/users/")
+    @GET("/search/users")
     fun getUserSearch(
-        @Query("userName") userName : String
+        @Query("q") userName : String
     ) : Call<SearchResponse>
 
-    @FormUrlEncoded
+
     @Headers("Authorization: token $ACCESS_TOKEN")
     @GET("/users/{username}")
     fun getUser(
         @Path("username") userName: String
     ) : Call<UserResponse>
 
-    @FormUrlEncoded
+
     @Headers("Authorization: token $ACCESS_TOKEN")
     @GET("/users/{username}/followers")
     fun getFollowers(
         @Path("username") userName: String
     ) : Call<FollowersResponse>
 
-    @FormUrlEncoded
+
     @Headers("Authorization: token $ACCESS_TOKEN")
     @GET("/users/{username}/following")
     fun getFollowing(
