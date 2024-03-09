@@ -4,7 +4,6 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-@Parcelize
 data class UserResponse(
 
 	@field:SerializedName("gists_url")
@@ -102,4 +101,4 @@ data class UserResponse(
 
 	@field:SerializedName("node_id")
 	val nodeId: String? = null
-) : Parcelable
+)

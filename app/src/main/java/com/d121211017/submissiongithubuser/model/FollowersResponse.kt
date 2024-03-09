@@ -4,14 +4,14 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-@Parcelize
+
 data class FollowersResponse(
 
 	@field:SerializedName("FollowersResponse")
 	val followersResponse: List<FollowersResponseItem?>? = null
-) : Parcelable
+)
 
-@Parcelize
+
 data class FollowersResponseItem(
 
 	@field:SerializedName("gists_url")
@@ -67,4 +67,4 @@ data class FollowersResponseItem(
 
 	@field:SerializedName("organizations_url")
 	val organizationsUrl: String? = null
-) : Parcelable
+)
