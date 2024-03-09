@@ -7,6 +7,10 @@ android {
     namespace = "com.d121211017.submissiongithubuser"
     compileSdk = 33
 
+    buildFeatures{
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.d121211017.submissiongithubuser"
         minSdk = 24
