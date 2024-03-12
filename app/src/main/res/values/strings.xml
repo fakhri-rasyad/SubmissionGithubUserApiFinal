@@ -3,4 +3,9 @@
     <string name="search_bar_text">Masukkan username disini</string>
     <string name="main_rv_image">main_rv_image</string>
     <string name="main_rv_text">Main Rv text</string>
+    <string name="detail_image">detail image</string>
+    <string name="follower_count_d">Follower Count %1$d</string>
+    <string name="following_count">Following Count: %1$d</string>
+    <string name="username_placeholder">username placeholder</string>
+    <string name="name_placholder">Name placholder</string>
 </resources>
