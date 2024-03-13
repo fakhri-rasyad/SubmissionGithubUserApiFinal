@@ -1,5 +1,6 @@
 package com.d121211017.submissiongithubuser.ui.main.recyclerview
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.d121211017.submissiongithubuser.R
 import com.d121211017.submissiongithubuser.model.ItemsItem
+import com.d121211017.submissiongithubuser.ui.detail.DetailActivity
 
 class MainRecyclerViewAdapter(private val userArrayList : List<ItemsItem?>?) : RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
@@ -29,6 +31,12 @@ class MainRecyclerViewAdapter(private val userArrayList : List<ItemsItem?>?) : R
             .into(holder.imageView)
 
         holder.textView.text = users?.login
+
+        holder.itemView.setOnClickListener(){
+            val intent = Intent(holder.itemView.context, DetailActivity::class.java)
+            intent.putExtra(DetailActivity.username, users?.login)
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

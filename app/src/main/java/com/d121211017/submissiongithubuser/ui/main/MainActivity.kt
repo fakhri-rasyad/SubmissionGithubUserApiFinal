@@ -7,7 +7,6 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.d121211017.submissiongithubuser.databinding.ActivityMainBinding
 import com.d121211017.submissiongithubuser.model.ItemsItem
 import com.d121211017.submissiongithubuser.ui.main.recyclerview.MainRecyclerViewAdapter
@@ -49,6 +48,10 @@ class MainActivity : AppCompatActivity() {
             showMainRecycler(it)
         }
 
+        mainViewModel.isError.observe(this){
+            showErrorToast(it)
+        }
+
     }
 
     private fun showMainRecycler(userList : List<ItemsItem?>?){
@@ -62,5 +65,9 @@ class MainActivity : AppCompatActivity() {
         } else {
             binding.mainProgressBar.visibility = View.INVISIBLE
         }
+    }
+
+    private fun showErrorToast(isError : Boolean){
+        if(isError) Toast.makeText(this, "Ups sepertinya ada yang salah", Toast.LENGTH_SHORT).show()
     }
 }

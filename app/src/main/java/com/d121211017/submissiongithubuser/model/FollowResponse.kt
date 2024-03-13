@@ -3,15 +3,7 @@ package com.d121211017.submissiongithubuser.model
 
 import com.google.gson.annotations.SerializedName
 
-
-data class FollowersResponse(
-
-	@field:SerializedName("FollowersResponse")
-	val followersResponse: List<FollowersResponseItem?>? = null
-)
-
-
-data class FollowersResponseItem(
+data class FollowResponseItem(
 
 	@field:SerializedName("gists_url")
 	val gistsUrl: String? = null,

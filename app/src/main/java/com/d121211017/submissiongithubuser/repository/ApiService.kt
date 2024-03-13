@@ -1,11 +1,10 @@
 package com.d121211017.submissiongithubuser.repository
 
-import com.d121211017.submissiongithubuser.model.FollowersResponse
-import com.d121211017.submissiongithubuser.model.FollowingResponse
+
+import com.d121211017.submissiongithubuser.model.FollowResponseItem
 import com.d121211017.submissiongithubuser.model.SearchResponse
 import com.d121211017.submissiongithubuser.model.UserResponse
 import retrofit2.Call
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Path
@@ -33,14 +32,14 @@ interface ApiService {
     @GET("/users/{username}/followers")
     fun getFollowers(
         @Path("username") userName: String
-    ) : Call<FollowersResponse>
+    ) : Call<List<FollowResponseItem>>
 
 
     @Headers("Authorization: token $ACCESS_TOKEN")
     @GET("/users/{username}/following")
     fun getFollowing(
         @Path("username") userName: String
-    ) : Call<FollowingResponse>
+    ) : Call<List<FollowResponseItem>>
 
 
 }
